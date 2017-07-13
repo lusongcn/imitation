@@ -2,12 +2,7 @@
 import urllib2
 import urllib
 import requests
-import demjson
-import time
 import re
-import xlwt
-import xlrd
-from xlutils.copy import copy
 import sys
 import config
 from urlparse import *
