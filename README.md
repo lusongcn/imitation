@@ -1,8 +1,8 @@
 # imitation
 ---
-Imitation website for mac
-Mac下的爬虫仿站工具
-本项目基于Python，本项目为初次提交，有问题欢迎大家提建议
+1. Imitation website for mac
+1. Mac下的爬虫仿站工具
+1. 本项目基于Python，本项目为初次提交，有问题欢迎大家提建议
 
 #基本信息
 ---
