@@ -43,6 +43,8 @@ python imitation.py
 ![imitation仿站工具](https://ptorch.com/uploads/919864e121958585d4354606dc8eeff7.png)
 
 # 关于我们
+文档地址：https://ptorch.com/news/23.html
+
 本脚本由Pytorch中文网Earnp提供，官方地址为：https://ptorch.com/
 
 官方群为：**168117787**，大家可以交流讨论
