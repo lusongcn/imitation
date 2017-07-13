@@ -75,6 +75,7 @@ class Imitation(object):
                     re_css = css
                 else:
                     re_css= scheme+"://"+baseurl+css
+                    re_css = re_css.replace("..","")
 
                 x= css.split('/')
                 ncss = "/css/"+x[len(x)-1]
@@ -123,6 +124,7 @@ class Imitation(object):
                     re_js = js
                 else:
                     re_js = scheme+"://"+baseurl+js
+                    re_js = re_js.replace("..","")
 
                 x= js.split('/')
                 njs = "/js/"+x[len(x)-1]
