@@ -16,5 +16,13 @@
 #使用方法
 ---
 
+```
+git clone https://github.com/earnp/imitation.git
+cd imitation
+# 启动脚本
+python imitation.py 
+
+```
+
 #关于我们
 ---
