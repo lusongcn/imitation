@@ -80,6 +80,8 @@ class Imitation(object):
                 x= css.split('/')
                 ncss = "/css/"+x[len(x)-1]
                 vcss = re.findall(r"(.*)\?", ncss)
+                # CSS地址
+                bacecssurl = re_css.replace(x[len(x)-1],"")
                 if vcss:
                     ncss = vcss[0]
                 try:
@@ -92,14 +94,15 @@ class Imitation(object):
                         for bkimg in bkimgs:
                             f= bkimg.split('/')
                             nimg = "../images/"+f[len(f)-1]
-
                             if "http" in bkimg:
                                 re_img = bkimg
                             else:
                                 simg = bkimg.replace("../","/")
                                 ssimg = simg.replace("//","/").replace("///","/")
-                                re_img= scheme+"://"+baseurl+ssimg
-
+                                if "/" not in ssimg:
+                                    re_img= bacecssurl+"/"+ssimg
+                                else:
+                                    re_img= scheme+"://"+baseurl+ssimg
                             try:
                                 newimgsrc = baseurl+'/images/%s' % f[len(f)-1]
                                 urllib.urlretrieve(re_img,newimgsrc)
