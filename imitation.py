@@ -69,14 +69,13 @@ class Imitation(object):
         links = soup.find_all(rel="stylesheet")
         for link in links:
             css = link.get("href")
-
             if css:
                 if "http" in css:
                     re_css = css
                 else:
-                    re_css= scheme+"://"+baseurl+css
+                    re_css= scheme+"://"+baseurl+"/"+css
                     re_css = re_css.replace("..","")
-
+                    re_css = re_css.replace("//","/")
                 x= css.split('/')
                 ncss = "/css/"+x[len(x)-1]
                 vcss = re.findall(r"(.*)\?", ncss)
@@ -126,15 +125,14 @@ class Imitation(object):
                 if "http" in js:
                     re_js = js
                 else:
-                    re_js = scheme+"://"+baseurl+js
+                    re_js = scheme+"://"+baseurl+"/"+js
                     re_js = re_js.replace("..","")
-
+                    re_js = re_js.replace("//","/")
                 x= js.split('/')
                 njs = "/js/"+x[len(x)-1]
                 vjs = re.findall(r"(.*)\?", njs)
                 if vjs:
                     njs = vjs[0]
-
                 try:
                     jsinfo = requests.get(re_js, headers=self.headers)
                     # 打开一个文件
@@ -190,8 +188,11 @@ class Imitation(object):
 
             x= link.split('/')
             nimg = "images/"+x[len(x)-1]
+            vimg = re.findall(r"(.*)\?", nimg)
+            if vimg:
+                nimg = vimg[0]
             try:
-                newimgsrc = baseurl+'/images/%s' % x[len(x)-1]
+                newimgsrc = baseurl+'/%s' % nimg
                 urllib.urlretrieve(newlink,newimgsrc)
                 html = html.replace(link,nimg)
             except:
