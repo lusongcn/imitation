@@ -28,7 +28,7 @@ class Imitation(object):
         req = requests.get(url, headers=self.headers)
         status = req.status_code
         if status == 200:
-            print "\033[0;33;40m HostUrl：\033[0m"+url
+            print ("\033[0;33;40m HostUrl：\033[0m"+url)
             # 解析网址
             urlparses = urlparse(url)
             # 提取网址
@@ -56,7 +56,7 @@ class Imitation(object):
             self.writedoc(baseurl,htmlname,newhtml)
             self.jindu(100)
         else:
-            print "\033[0;31;40m HostUrl\033[0m"+url
+            print ("\033[0;31;40m HostUrl\033[0m"+url)
 
     def readLists(self,file):
         fo = open(file, "r+")
@@ -203,7 +203,7 @@ class Imitation(object):
     def mkprojectdir(self,baseurl):
         exists = os.path.exists(baseurl)
         if exists:
-            print "\033[0;33;40m Notice：\033[0m"+"Project Exists"
+            print ("\033[0;33;40m Notice：\033[0m"+"Project Exists")
         else:
             os.mkdir(baseurl)
             os.mkdir(baseurl+"/css")
@@ -213,7 +213,7 @@ class Imitation(object):
     def jindu(self,n):
         import sys,time
         fmt = '{:3d} [{:<100}]'.format
-        print '\r',fmt(n, '='*n)
+        print ('\r'+fmt(n, '='*n))
 
 
 if __name__ == "__main__":
